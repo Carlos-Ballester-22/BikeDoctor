@@ -67,6 +67,8 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = "auth_service_users",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ClaveSuperSeguraConMasDe32Caracteres123!"))
     };
+    options.MapInboundClaims = false;
+    options.TokenValidationParameters.RoleClaimType = "Role";
 });
 
 // Agregar Swagger
